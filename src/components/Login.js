@@ -18,9 +18,9 @@ const Login = () => {
   return (
     <div className={login&&("bg-black h-screen")} >
        {!login&&(<><Header/><LoginBody/><Footer/></>)}
-
+       
        {login&&<form  className="h-96 w-[25%] absolute mt-[10%] ml-[35%] bg-[#56CCF2] flex flex-col  mx-auto rounded-lg">
-
+        <span className={"right-1 text-xl mr-2 p-2 text-white absolute cursor-pointer"} onClick={()=>setLogin(false)}>X</span>
           <h1 className="p-4 text-2xl font-bold">Login</h1>
           <input className="p-3 w-[95%] m-2" placeholder="Name"></input>
           <input className="p-3 w-[95%] m-2" placeholder="Email"></input>
