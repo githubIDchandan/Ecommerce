@@ -5,12 +5,13 @@ import { addItem } from "../store/mealSlice";
   const {card}=props;
   const dispatch=useDispatch();
   const cardItem=useSelector((store)=>store.meal.items)
-
+  let count=0;
   const cardHandler=()=>{
      
       for(let i=0;i<cardItem.length;i++){
-          if(cardItem[i].name===card.name){
+          if(cardItem[i].name===card.name&&count===0){
               alert("Already item added to the cart");
+              count++;
               return;
           }
            
@@ -35,5 +36,7 @@ import { addItem } from "../store/mealSlice";
     </div>
   )
 }
+
+
 
 export default Card

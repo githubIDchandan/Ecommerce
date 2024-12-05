@@ -20,7 +20,7 @@ const Login = () => {
   return (
     <div className={login&&("bg-black h-screen")} >
       
-      {!login&&(<><Header/><LoginBody/><Footer/></>)}
+      {!login&&(<><Header/><div className="relative top-20 z-10"><LoginBody/><Footer/></div></>)}
        
        {login&&<form  className="h-96 w-[25%] absolute mt-[10%] ml-[35%] bg-[#56CCF2] flex flex-col  mx-auto rounded-lg">
         <span className={"right-1 text-xl mr-2 p-2 text-white absolute cursor-pointer"} onClick={()=>setLogin(false)}>X</span>

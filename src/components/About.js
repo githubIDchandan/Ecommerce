@@ -4,7 +4,7 @@ const About = () => {
   return (
     <>
     <Header/>
-    <div className="flex">
+    <div className="flex relative top-20">
         <img alt="img" className="h-[690px] w-[50%] object-cover " src="https://www.blogtyrant.com/wp-content/uploads/2011/02/best-about-us-pages.png"></img>
         {/* <h1 className="inline bg-red-300 h-fit ab">About Us</h1> */}
         <div className=" ">
