@@ -1,6 +1,22 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../store/mealSlice";
 
-const Card = (props) => {
-    const {card}=props;
+ const Card = (props) => {
+  const {card}=props;
+  const dispatch=useDispatch();
+  const cardItem=useSelector((store)=>store.meal.items)
+
+  const cardHandler=()=>{
+     
+      for(let i=0;i<cardItem.length;i++){
+          if(cardItem[i].name===card.name){
+              alert("Already item added to the cart");
+              return;
+          }
+           
+      }
+      dispatch(addItem({name:card.name,img:card.img,price:card.price}))
+  }
     
   return (
     <div>
@@ -12,7 +28,7 @@ const Card = (props) => {
            </div>
             <div className="flex justify-between">
                 <h2 className="text-lg mt-2">{card.price}</h2>
-                <button className="bg-[#56CCF2] my-1 p-2 text-white font-bold rounded-lg shadow-lg">ADD TO CART</button>
+                <button className="bg-[#56CCF2] my-1 p-2 text-white font-bold rounded-lg shadow-lg" onClick={cardHandler}>ADD TO CART</button>
             </div>
            </div>
         </div>

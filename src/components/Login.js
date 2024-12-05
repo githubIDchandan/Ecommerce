@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import Footer from "./Footer"
 import Header from "./Header"
 import LoginBody from "./LoginBody"
+import { Provider } from "react-redux"
+import appStore from "../store/appStore"
 
 const Login = () => {
   const [login,setLogin]=useState(false)
@@ -17,7 +19,8 @@ const Login = () => {
  
   return (
     <div className={login&&("bg-black h-screen")} >
-       {!login&&(<><Header/><LoginBody/><Footer/></>)}
+      
+      {!login&&(<><Header/><LoginBody/><Footer/></>)}
        
        {login&&<form  className="h-96 w-[25%] absolute mt-[10%] ml-[35%] bg-[#56CCF2] flex flex-col  mx-auto rounded-lg">
         <span className={"right-1 text-xl mr-2 p-2 text-white absolute cursor-pointer"} onClick={()=>setLogin(false)}>X</span>
@@ -31,6 +34,7 @@ const Login = () => {
             <span className=" border-b-[1px] text-white cursor-pointer ">Signup</span>
           </div>
        </form>}
+     
       
     </div>
   )
