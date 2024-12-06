@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { Link, Links, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import Cart from "./Cart";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -49,24 +49,25 @@ const Header = () => {
 
 
   },[navigate,location.pathname])
-  console.log(location.pathname)
+  
 
   
   return (
-    <div className="   ">
-    <div className={" text-white h-20 fixed top-0 z-20 flex justify-end  w-full "+(user===null?"bg-white":"bg-black")}>
+    <div>
+     
+    <div className={" text-white h-20 fixed top-0 z-20 flex justify-end  w-full "+(user===null?"":"bg-black")}>
        {user&&<div className="flex">
        <ul className="flex">
-          <Link to={"/"}><li className="m-2 p-4 text-xl cursor-pointer">Home</li></Link>
+          <Link to={"/home"}><li className="m-2 p-4 text-xl cursor-pointer">Home</li></Link>
           <Link to={"/store"}><li className="m-2 p-4 text-xl cursor-pointer">Store</li></Link>
          <Link to={"/about"}> <li className="m-2 p-4 text-xl cursor-pointer">About</li></Link>
-         <li className=" h-fit mt-5 px-5 py-1 rounded-sm text-xl cursor-pointer border border-white"
+        {location.pathname==="/store"&&<li className=" h-fit mt-5 px-5 py-1 rounded-sm text-xl cursor-pointer border border-white"
            onClick={()=>{
             setViewCart(!viewCart)
            }}
-         >Cart({cartItem.length})</li>
+         >Cart({cartItem.length})</li>}
         </ul>
-        <button className="bg-orange-400 w-32 h-10 mx-4 my-5 text-lg" onClick={handleLogin}>Login</button>
+        <button className="bg-orange-400 w-32 h-10 mx-4 my-5 text-lg" onClick={handleLogin}>Logout</button>
        </div>}
         
     </div>

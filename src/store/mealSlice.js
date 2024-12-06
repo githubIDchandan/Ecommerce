@@ -17,8 +17,10 @@ const mealSlice=createSlice(
                 state.items.length=0;
             }
             ,
-            removeItem:(state)=>{
-                state.items.pop();
+            removeItem:(state,action)=>{
+                // state.items.pop();
+                const indx=state.items.findIndex((element)=>element.name===action.payload)
+                state.items.splice(indx,1)
             }
         }
     }

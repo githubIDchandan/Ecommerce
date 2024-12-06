@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { removeItem } from "../store/mealSlice";
 
 const CartItem = ({item}) => {
     const cardItem=useSelector((store)=>store.meal.items);
+    const dispatch=useDispatch();
   
     let c1=0
      for(let i=0;i<cardItem.length;i++){
@@ -11,6 +12,10 @@ const CartItem = ({item}) => {
             c1++;
           
         }
+     }
+
+     const removeItemHandler=(e)=>{
+      dispatch(removeItem(item.name))
      }
     
    return (
@@ -27,7 +32,9 @@ const CartItem = ({item}) => {
         <div className="w-[50%]  text-center  m-1 p-2">
           {/* <h1 className="text-2xl font-bold border-black border-b-2">Quantity</h1> */}
           <button className="mt-10 mx-2 border border-[#56CCF2] px-4">{c1}</button>
-          <button className=" mt-10   shadow-2xl px-4 py-1 rounded-full bg-red-600 text-white hover:bg-black">Remove</button>
+          <button className=" mt-10   shadow-2xl px-4 py-1 rounded-full bg-red-600 text-white hover:bg-black"
+             onClick={removeItemHandler}
+          >Remove</button>
         </div>
     </div>
     </div>

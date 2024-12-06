@@ -4,6 +4,7 @@ import About from "./components/About";
 import Store from "./components/Store";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore";
+import LoginBody from "./components/LoginBody";
 
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
     {
       path:"/store",
       element:<Store/>
+    },
+    {
+      path:"/home",
+      element:<LoginBody/>
     }
   ])
 

@@ -1,12 +1,9 @@
-import { useEffect, useRef, useState } from "react"
-import Footer from "./Footer"
+import {useRef, useState } from "react"
 import Header from "./Header"
-import LoginBody from "./LoginBody"
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
-import { addUser } from "../store/userSlice";
 
 
 
@@ -15,7 +12,6 @@ import { addUser } from "../store/userSlice";
 const Login = () => {
   const [login,setLogin]=useState(false);
 
-  const name=useRef(null);
   const email=useRef(null);
   const password=useRef(null);
   const navigate=useNavigate();
@@ -38,7 +34,7 @@ const Login = () => {
         createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => { 
                const user = userCredential.user;
-               console.log(user)
+              
               //  navigate("/store")
                
              })
@@ -68,10 +64,9 @@ const Login = () => {
   }
 
   const handleSignIn=()=>{
-    console.log("true")
+    
     setLogin(!login);
   }
-console.log("ll",login)
 
   return (
     <div className={login&&("bg-black h-screen")} >
@@ -82,7 +77,6 @@ console.log("ll",login)
       <form onSubmit={formSubmitHandler}  className="h-fit w-[25%] absolute mt-[10%] ml-[35%] bg-[#56CCF2] flex flex-col  mx-auto rounded-lg">
         <span className={"right-1 text-xl mr-2 p-2 text-white absolute cursor-pointer"} onClick={()=>setLogin(false)}>X</span>
           <h1 className="p-4 text-2xl font-bold">{login===true?"Login":"Sign Up"}</h1>
-          {!login&&<input ref={name} className="p-3 w-[95%] m-2" placeholder="Name"></input>}
           <input ref={email} className="p-3 w-[95%] m-2" placeholder="Email"></input>
           <input ref={password} className="p-3 w-[95%] m-2" placeholder="Password"></input>
           <button className="bg-black text-white py-4 w-[95%] m-2 text-lg font-bold rounded-sm bg-gradient-to-r from-[#3e98b6]">Submit</button>

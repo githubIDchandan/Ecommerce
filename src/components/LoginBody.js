@@ -1,7 +1,10 @@
+import Footer from "./Footer"
+import Header from "./Header"
 
 const LoginBody = () => {
   return (
-    <div className="top-20">
+    <> <Header/>
+    <div className="top-20 relative">
         <div className="bg-gray-400 h-[330px] mt-[2px] flex flex-col  items-center">
         <div className=" text-8xl font-bold text-white">The Generics</div>
         <div className="text-4xl mt-8 text-white border border-blue-100 p-4 rounded-sm">Get Our Latest Album</div>
@@ -54,7 +57,10 @@ const LoginBody = () => {
         </div>
     </div>
        </div>
+       <Footer/>
     </div>
+    
+    </>
   )
 }
 
