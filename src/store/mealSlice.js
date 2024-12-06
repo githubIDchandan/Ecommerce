@@ -26,3 +26,12 @@ const mealSlice=createSlice(
 
 export const {addItem,clearCart,removeItem}=mealSlice.actions;
 export default mealSlice.reducer;
+
+
+
+
+
+
+
+
+
